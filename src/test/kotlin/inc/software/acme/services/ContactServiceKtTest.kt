@@ -15,6 +15,8 @@ import org.junit.jupiter.api.extension.ExtendWith
 import java.time.Duration
 import java.time.Instant
 import java.time.LocalDate
+import java.time.ZoneOffset
+import java.time.ZoneOffset.UTC
 
 @ExtendWith(MockKExtension::class)
 internal class ContactServiceTest {
@@ -35,43 +37,43 @@ internal class ContactServiceTest {
     private val testData = listOf(
             Text to listOf(
                     WeatherInfo(
-                            time = Instant.now() - Duration.ofHours(3),
+                            time = LocalDate.now().atStartOfDay().toInstant(UTC),
                             temp = 90F,
                             weatherType = Sunny),
                     WeatherInfo(
-                            time = Instant.now(),
+                            time = LocalDate.now().atStartOfDay().toInstant(UTC) + Duration.ofHours(3),
                             temp = 90F,
                             weatherType = Sunny),
                     WeatherInfo(
-                            time = Instant.now() + Duration.ofHours(3),
+                            time = LocalDate.now().atStartOfDay().toInstant(UTC) + Duration.ofHours(6),
                             temp = 90F,
                             weatherType = Sunny)),
 
             Phone to listOf(
                     WeatherInfo(
-                            time = Instant.now() - Duration.ofHours(3),
+                            time = LocalDate.now().atStartOfDay().toInstant(UTC),
                             temp = 90F,
                             weatherType = Sunny),
                     WeatherInfo(
-                            time = Instant.now(),
+                            time = LocalDate.now().atStartOfDay().toInstant(UTC) + Duration.ofHours(3),
                             temp = 90F,
                             weatherType = Sunny),
                     WeatherInfo(
-                            time = Instant.now() + Duration.ofHours(3),
+                            time = LocalDate.now().atStartOfDay().toInstant(UTC) + Duration.ofHours(6),
                             temp = 90F,
                             weatherType = Rainy)),
 
             Email to listOf(
                     WeatherInfo(
-                            time = Instant.now() - Duration.ofHours(3),
+                            time = LocalDate.now().atStartOfDay().toInstant(UTC),
                             temp = 55F,
                             weatherType = Other),
                     WeatherInfo(
-                            time = Instant.now(),
+                            time = LocalDate.now().atStartOfDay().toInstant(UTC) + Duration.ofHours(3),
                             temp = 65F,
                             weatherType = Other),
                     WeatherInfo(
-                            time = Instant.now() + Duration.ofHours(3),
+                            time = LocalDate.now().atStartOfDay().toInstant(UTC) + Duration.ofHours(6),
                             temp = 70F,
                             weatherType = Other))
     )
