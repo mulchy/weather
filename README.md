@@ -9,5 +9,5 @@ API_KEY=<your key> ./gradlew :run
 ```
 or on windows
 ```
-set API_KEY=<your key> && gradle.bat :run
+set API_KEY=<your key> && gradlew.bat :run
 ```
