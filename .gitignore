@@ -49,3 +49,7 @@ gradle-app.setting
 
 # Ignore Gradle build output directory
 build
+
+# ignore all intelij files
+*.iml
+.idea
