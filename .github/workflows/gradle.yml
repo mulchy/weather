@@ -23,9 +23,4 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
-      run: ./gradlew build
-    - uses: actions/upload-artifact@v2
-      if: failure()
-      with:
-        name: test-report
-        path: /home/runner/work/weather/weather/build/reports/tests/test/index.html
+      run: ./gradlew build --stacktrace 
